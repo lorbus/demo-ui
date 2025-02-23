@@ -1,0 +1,44 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #start (keydown)="start.close()">
+
+    <mat-nav-list>
+
+      <a *ngIf="auth.isLoggedOut$ | async" mat-list-item routerLink="login">
+        <mat-icon>account_circle</mat-icon>
+        <span>Login</span>
+      </a>
+
+      <a *ngIf="auth.isLoggedIn$ | async" mat-list-item routerLink="/">
+        <mat-icon>library_books</mat-icon>
+        <span>All Posts</span>
+      </a>
+
+      <a *ngIf="auth.isLoggedIn$ | async" mat-list-item routerLink="/search-tags">
+        <mat-icon>search</mat-icon>
+        <span>Search Tags</span>
+      </a>
+
+      <a (click)="logout()" *ngIf="auth.isLoggedIn$ | async" mat-list-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <div class="toolbar-tools">
+      <button (click)="start.open('mouse')" [matTooltip]="'Open Menu'" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="filler"></div>
+    </div>
+  </mat-toolbar>
+
+  <loading></loading>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

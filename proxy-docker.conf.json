@@ -1,0 +1,12 @@
+{
+  "/api": {
+    "target": {
+      "host": "backend",
+      "protocol": "http:",
+      "port": 8091
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "info"
+  }
+}

@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ post.title }}</h2>
+
+<loading></loading>
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <input (keyup)="enableOrDisableSaveButton()" formControlName="title" matInput placeholder="Title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea (keyup)="enableOrDisableSaveButton()" formControlName="content" matInput placeholder="Content"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input (dateChange)="enableOrDisableSaveButton()" [matDatepicker]="myDatepickerCreate" formControlName="createdAt"
+           matInput>
+    <mat-datepicker-toggle [for]="myDatepickerCreate" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerCreate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input (dateChange)="enableOrDisableSaveButton()" [matDatepicker]="myDatepickerUpdate" formControlName="updatedAt"
+           matInput>
+    <mat-datepicker-toggle [for]="myDatepickerUpdate" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatepickerUpdate></mat-datepicker>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button (click)="close()" mat-raised-button>Close</button>
+
+  <button (click)="save()" [disabled]="isDisabled" color="primary" mat-raised-button>Save</button>
+</mat-dialog-actions>
