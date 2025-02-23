@@ -4,6 +4,8 @@
 
 - `git init`
 
+- `git add .`
+
 - `git remote add github https://github.com/lorbus/demo-ui.git`
 - `git remote add gitlab https://gitlab.com/lorbush/demo-ui.git`
 
