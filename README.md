@@ -41,6 +41,8 @@
 
 - Add Pagination
 
+- Not saving Post changes (edit)
+
 ------------------------------------------------------
 
 ## 1. Installation pre-requisites
@@ -51,7 +53,7 @@
 
 ## 2. Installing
 
-`npm install` OR `npm install --force`
+`npm install` OR `npm install --force` OR `npm install --legacy-peer-deps`
 
 ## 3. Run the App (using the Angular CLI)
 

@@ -7,8 +7,9 @@ import {filter, tap} from 'rxjs/operators';
 @Component({
   selector: 'posts-card-list',
   templateUrl: './posts-card-list.component.html',
-  styleUrls: ['./posts-card-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './posts-card-list.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class PostsCardListComponent implements OnInit {
 

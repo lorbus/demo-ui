@@ -15,8 +15,9 @@ interface PostData {
 @Component({
   selector: 'post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css'],
+  styleUrl: './post.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class PostComponent implements OnInit {
 

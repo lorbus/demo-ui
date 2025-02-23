@@ -8,8 +8,9 @@ import {LoadingService} from '../loading/loading.service';
 @Component({
   selector: 'post',
   templateUrl: './search-tags.component.html',
-  styleUrls: ['./search-tags.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './search-tags.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SearchTagsComponent implements OnInit {
   searchResults$: Observable<Tag[]>;
@@ -21,7 +22,7 @@ export class SearchTagsComponent implements OnInit {
     private readonly router: Router,
     private readonly loading: LoadingService,
   ) {
-
+    // constructor is empty
   }
 
   ngOnInit() {

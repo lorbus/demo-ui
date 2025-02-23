@@ -7,7 +7,8 @@ import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrl: './login.component.scss',
+  standalone: false,
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;

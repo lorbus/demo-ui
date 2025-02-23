@@ -4,6 +4,7 @@ import {Tag} from '../model/tag';
 @Component({
   selector: 'tag',
   templateUrl: './tag.component.html',
+  standalone: false,
 })
 export class TagComponent implements OnInit {
 
@@ -11,7 +12,7 @@ export class TagComponent implements OnInit {
   tag: Tag;
 
   constructor() {
-
+    // constructor is empty
   }
 
   ngOnInit() {

@@ -10,10 +10,11 @@ import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'post-dialog',
   templateUrl: './post-dialog.component.html',
-  styleUrls: ['./post-dialog.component.css'],
+  styleUrl: './post-dialog.component.css',
   providers: [
     LoadingService,
   ],
+  standalone: false,
 })
 export class PostDialogComponent {
 
