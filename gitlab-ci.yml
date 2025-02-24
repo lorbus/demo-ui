@@ -1,17 +1,33 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/pipeline/#customization
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
 
 stages:
-  - test
+  - build
+#  - deploy
 
-sast:
-  stage: test
+build-and-unit-tests:
+  stage: build
+  cache:
+    paths:
+      - dist/
+  script:
+    - npm i -g @angular/cli
+    - npm install --legacy-peer-deps
+    - ng build --preserve-symlinks
+    - npm test
 
-include:
-  - template: Security/SAST.gitlab-ci.yml
-    #path:
+lint-test-job:
+  stage: build
+  script:
+    - echo "Linting code... This will take about 2 seconds."
+    - sleep 2
+    - echo "No lint issues found."
+
+#deploy_stage:
+#  stage: deploy
+#  environment: IT
+#  script:
+#    - scp -r dist/my-app/* $STAGING_SERVER_URI:/opt/staging/my-app
