@@ -24,3 +24,5 @@ EXPOSE 4200
 
 CMD ng serve --proxy-config ./proxy-docker.conf.json --host 0.0.0.0
 # --port 4200
+
+# ENTRYPOINT ["/bin/bash", "-l", "-c"]

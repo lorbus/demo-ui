@@ -15,13 +15,15 @@
 - `git push -u gitlab main`
 
 - Push from Terminal:
-  - `git push github --force`
-  - `git push gitlab --force`
+  - `git push github --force` or `git push github -f`
+  - `git push gitlab --force` or `git push gitlab -f`
 
 -----------------------------------------------------
 ## TODO
 
 - Add Pipelines
+  - GitLab (Doing)
+  - GitHub (https://stackoverflow.com/questions/63860001/angular-test-fails-to-run-with-chromeheadlessci-in-github-action/67804270)
 
 - Deploy:
   - GitHub / GitLab Pages ?
@@ -42,6 +44,8 @@
 - Add Pagination
 
 - Not saving Post changes (edit)
+
+- Migrate from TSLint to ESLint and fix code (Doing)
 
 ------------------------------------------------------
 

@@ -1,33 +1,34 @@
-cache:
-  paths:
-    - node_modules/
-
 stages:
   - build
-#  - deploy
+  - test
 
-build-and-unit-tests:
+variables:
+  CHROME_BIN: "/usr/bin/google-chrome"
+
+build-stage:
   image: node:latest
   stage: build
   cache:
+    key: $CI_COMMIT_REF_SLUG
     paths:
-      - dist/
+      - node_modules/
+    policy: push
   script:
     - npm i -g @angular/cli
     - npm install --legacy-peer-deps
-    - ng build --preserve-symlinks
-    - npm test
+    - ng build
 
-lint-test-job:
-  stage: build
+unit-test-stage:
+  image: node:latest
+  stage: test
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+    policy: pull
+  before_script:
+    - apt-get update && apt-get install -y wget gnupg unzip
+    - wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - dpkg -i google-chrome.deb || apt-get -fy install
   script:
-    - echo "Linting code... This will take about 2 seconds."
-    - sleep 2
-    - echo "No lint issues found."
-
-#deploy_stage:
-#  image: node:latest
-#  stage: deploy
-#  environment: IT
-#  script:
-#    - scp -r dist/my-app/* $STAGING_SERVER_URI:/opt/staging/my-app
+    - npm test
