@@ -18,12 +18,12 @@ build-and-unit-tests:
     - ng build --preserve-symlinks
     - npm test
 
-lint-test-job:
-  stage: build
-  script:
-    - echo "Linting code... This will take about 2 seconds."
-    - sleep 2
-    - echo "No lint issues found."
+#lint-test-job:
+#  stage: build
+#  script:
+#    - echo "Linting code... This will take about 2 seconds."
+#    - sleep 2
+#    - echo "No lint issues found."
 
 #deploy_stage:
 #  image: node:latest

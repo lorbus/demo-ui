@@ -16,7 +16,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-    client: {
+    client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
@@ -35,18 +35,10 @@ module.exports = function (config) {
       'kjhtml'
     ],
     port: 9876,
-    colors: true,
     logLevel: config.LOG_INFO,
+    browsers: ['Chrome'],
+    colors: false,
     autoWatch: false,
-    browsers: ['ChromeHeadless'],
-    singleRun: true,
-    customLaunchers:{
-      HeadlessChrome:{
-        base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox'
-        ]
-      }
-    }
+    singleRun: true
   });
 };
