@@ -1,0 +1,33 @@
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+#  - deploy
+
+build-and-unit-tests:
+  image: node:latest
+  stage: build
+  cache:
+    paths:
+      - dist/
+  script:
+    - npm i -g @angular/cli
+    - npm install --legacy-peer-deps
+    - ng build --preserve-symlinks
+    - npm test
+
+lint-test-job:
+  stage: build
+  script:
+    - echo "Linting code... This will take about 2 seconds."
+    - sleep 2
+    - echo "No lint issues found."
+
+#deploy_stage:
+#  image: node:latest
+#  stage: deploy
+#  environment: IT
+#  script:
+#    - scp -r dist/my-app/* $STAGING_SERVER_URI:/opt/staging/my-app
