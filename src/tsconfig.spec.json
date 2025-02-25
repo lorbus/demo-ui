@@ -6,7 +6,8 @@
     "types": [
       "jasmine",
       "node"
-    ]
+    ],
+    "typeRoots": [ "./node_modules/@types", "../node_modules/@types", "../../node_modules/@types" ]
   },
   "files": [
     "test.ts",
@@ -14,6 +15,7 @@
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts"
+    "**/*.d.ts",
+    "**/*."
   ]
 }
