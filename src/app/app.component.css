@@ -19,6 +19,7 @@ main {
 .filler {
   flex: 1 1 auto;
   width: 100%;
+  margin: 0.4em 1em;
 }
 
 /* Fixed Angular Material Toolbar */

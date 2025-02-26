@@ -91,19 +91,50 @@
               "src/favicon.ico"
             ]
           }
-        }
-      }
-    },
-    "angular-material-post-e2e": {
-      "root": "",
-      "sourceRoot": "",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
           "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular-material-post:serve"
+            "devServerTarget": "angular-posts-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-posts-demo:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular-posts-demo:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "angular-posts-demo:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular-posts-demo:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-posts-demo:serve:production"
+            }
           }
         }
       }
@@ -118,6 +149,10 @@
     }
   },
   "cli": {
-    "analytics": "3e2bbd4d-b51b-4bab-8828-77f66d8c5b0d"
+    "analytics": "3e2bbd4d-b51b-4bab-8828-77f66d8c5b0d",
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   }
 }

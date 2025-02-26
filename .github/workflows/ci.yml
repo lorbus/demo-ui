@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 23
+          node-version: 22
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -42,3 +42,9 @@ jobs:
           name: unit-tests-report
           path: '**/coverage/junit.xml'
           reporter: java-junit
+
+      # Install npm dependencies, cache them correctly and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start

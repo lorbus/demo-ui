@@ -1,5 +1,7 @@
 <mat-sidenav-container fullscreen>
 
+
+
   <mat-sidenav #start (keydown)="start.close()">
 
     <mat-nav-list>
@@ -29,11 +31,12 @@
   </mat-sidenav>
 
   <mat-toolbar color="primary">
+
     <div class="toolbar-tools">
       <button (click)="start.open('mouse')" [matTooltip]="'Open Menu'" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <div class="filler"></div>
+      <div class="filler">{{title}}</div>
     </div>
   </mat-toolbar>
 

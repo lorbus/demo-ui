@@ -9,15 +9,17 @@ import {Router} from "@angular/router";
   standalone: false,
 })
 export class AppComponent implements OnInit {
+  protected title: string = "";
+
   constructor(
     public auth: AuthStore,
     private readonly router: Router,
   ) {
-
+    // empty constructor
   }
 
   ngOnInit() {
-    // empty method
+    window.setTimeout(() => this.title = "Welcome to Post Demo Angular App", 100)
   }
 
   logout() {

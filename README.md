@@ -27,10 +27,7 @@
 -----------------------------------------------------
 ## TODO
 
-- Add Pipelines
-  - GitLab (Done)
-  - GitHub (Doing) (https://stackoverflow.com/questions/63860001/angular-test-fails-to-run-with-chromeheadlessci-in-github-action/67804270)
-    - Add caches to GitHub workflow
+- GitHub Actions - add Cache to GitHub workflow (as in GitLab Pipelines) (Doing)
 
 - Deploy:
   - GitHub / GitLab Pages ?
@@ -41,20 +38,15 @@
 
 - Add Health Checks
 
-- FIX UI dependencies - deprecated (Done)
-
 - Add Tests (Doing)
 
 - Add different languages
-
-- Add Cache ?
 
 - Add Pagination
 
 - Not saving Post changes (edit)
 
-- Migrate from TSLint to ESLint and fix code (Done)
-  - Fix code format (Doing)
+- Fix code format with TSLint (Doing)
 
 
 ------------------------------------------------------
@@ -87,3 +79,13 @@ Run FE with the following command:
     docker login -u lorbush
     docker tag demo-frontend lorbush/demo-frontend
     docker push lorbush/demo-frontend
+
+
+### Cypress
+
+- npx cypress run --record --key XXX
+  - cypress cloud
+
+- npx cypress run
+  -  e2e.baseUrl should be correct 
+
