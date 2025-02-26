@@ -1,5 +1,11 @@
 # Demo FE/UI App for Posts
 
+- GitHub Workflows
+  Status: [![GitHub Workflows Status](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml)
+- GitLab Pipelines
+  Status: [![GitLab Pipelines Status](https://gitlab.com/lorbush/demo-ui/badges/main/pipeline.svg)](https://gitlab.com/lorbush/demo-ui/-/commits/main)
+
+
 ## Initialize Repo
 
 - `git init`
@@ -22,8 +28,9 @@
 ## TODO
 
 - Add Pipelines
-  - GitLab (Doing)
-  - GitHub (https://stackoverflow.com/questions/63860001/angular-test-fails-to-run-with-chromeheadlessci-in-github-action/67804270)
+  - GitLab (Done)
+  - GitHub (Doing) (https://stackoverflow.com/questions/63860001/angular-test-fails-to-run-with-chromeheadlessci-in-github-action/67804270)
+    - Add caches to GitHub workflow
 
 - Deploy:
   - GitHub / GitLab Pages ?
@@ -34,8 +41,9 @@
 
 - Add Health Checks
 
-- FIX UI dependencies - deprecated (Doing)
-- Add Tests
+- FIX UI dependencies - deprecated (Done)
+
+- Add Tests (Doing)
 
 - Add different languages
 
@@ -45,7 +53,9 @@
 
 - Not saving Post changes (edit)
 
-- Migrate from TSLint to ESLint and fix code (Doing)
+- Migrate from TSLint to ESLint and fix code (Done)
+  - Fix code format (Doing)
+
 
 ------------------------------------------------------
 

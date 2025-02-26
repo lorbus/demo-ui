@@ -14,9 +14,8 @@ build:
       - node_modules/
     policy: push
   script:
-    - npm i -g @angular/cli
     - npm install --legacy-peer-deps
-    - ng build
+    - npm run build
 
 unit-test:
   image: node:latest

@@ -1,0 +1,44 @@
+name: GitHub-CI
+
+on: [ push ]
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
+jobs:
+  build-and-test-with-reports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        run: npm run build
+
+      - name: Make the script file executable
+        run: chmod +x install-chrome.sh
+
+      - name: Run install chrome script
+        run: ./install-chrome.sh
+
+      - name: Run Unit Tests
+        run: npm test
+
+      - name: Unit Tests Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: unit-tests-report
+          path: '**/coverage/junit.xml'
+          reporter: java-junit
