@@ -1,0 +1,52 @@
+<div class="post">
+
+  <ng-container *ngIf="!activeTag">
+
+    <h2>Search Tags related to Posts</h2>
+
+    <mat-form-field class="search-bar">
+      <input #searchInput (keyup.enter)="onSearch(searchInput.value)" autocomplete="off" matInput
+             placeholder="Type your search">
+    </mat-form-field>
+
+    <button (click)="onSearch(searchInput.value)" class="search" color="primary" mat-raised-button>
+      <mat-icon>search</mat-icon>
+      Search
+    </button>
+
+  </ng-container>
+
+  <ng-container *ngIf="!activeTag;else detail">
+
+    <ng-container *ngIf="(searchResults$ | async) as tags">
+
+      <table class="tags-table mat-elevation-z7">
+
+        <thead>
+        <th>Tag Name</th>
+        <th>Post ID</th>
+        </thead>
+
+        <tr (click)="openTag(tag)" *ngFor="let tag of tags" class="tag-row">
+          <td class="name-cell">{{tag.name}}</td>
+          <td class="name-cell">{{tag.postId}}</td>
+        </tr>
+
+      </table>
+
+    </ng-container>
+
+  </ng-container>
+
+  <ng-template #detail>
+
+    <tag [tag]="activeTag"></tag>
+
+    <button (click)="onBackToSearch()" class="back-btn" mat-raised-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+      Back to Search
+    </button>
+
+  </ng-template>
+
+</div>

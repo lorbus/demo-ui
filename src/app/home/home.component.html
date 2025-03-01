@@ -1,0 +1,12 @@
+<div class="posts-panel">
+  <h3>Posts</h3>
+
+  <mat-tab-group>
+
+    <mat-tab label="Posts">
+      <posts-card-list [posts]="posts$ | async"></posts-card-list>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>

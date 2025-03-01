@@ -1,0 +1,40 @@
+stages:
+  - build
+  - test
+
+variables:
+  CHROME_BIN: "/usr/bin/google-chrome"
+
+build:
+  image: node:latest
+  stage: build
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+    policy: push
+  script:
+    - npm install --legacy-peer-deps
+    - npm run build
+
+unit-test:
+  image: node:latest
+  stage: test
+  cache:
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node_modules/
+    policy: pull
+  before_script:
+    - apt-get update && apt-get install -y wget gnupg unzip
+    - wget -O google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - dpkg -i google-chrome.deb || apt-get -fy install
+  script:
+    - npm test
+  artifacts:
+    name: "NPM Test Coverage artifacts from $CI_PROJECT_NAME on $CI_COMMIT_REF_SLUG"
+    paths:
+      - "**/coverage"
+    reports:
+      junit:
+        - "**/coverage/junit.xml"

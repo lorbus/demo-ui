@@ -1,0 +1,12 @@
+.post-card {
+  margin: 20px 10px;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.post-actions button {
+  margin-right: 5px;
+}

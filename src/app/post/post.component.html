@@ -1,0 +1,43 @@
+<div class="post">
+
+  <ng-container *ngIf="!activeTag;else detail">
+
+    <ng-container *ngIf="(data$ | async) as data">
+
+      <h2>{{data.title}}</h2>
+
+      <table *ngIf="data.tagResponses.length" class="tags-table mat-elevation-z7">
+
+        <thead>
+        <th>Tag ID</th>
+        <th>Tag Name</th>
+        </thead>
+
+        <tr (click)="openTag(tag)" *ngFor="let tag of data.tagResponses" class="tag-row">
+          <td class="id-cell">{{tag.id}}</td>
+          <td class="name-cell">{{tag.name}}</td>
+        </tr>
+
+      </table>
+
+    </ng-container>
+
+    <button (click)="onBackToPosts()" class="back-btn" mat-raised-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+      Back to Posts
+    </button>
+
+  </ng-container>
+
+  <ng-template #detail>
+
+    <tag [tag]="activeTag"></tag>
+
+    <button (click)="onBackToTags()" class="back-btn" mat-raised-button>
+      <mat-icon>arrow_back_ios</mat-icon>
+      Back to Detail
+    </button>
+
+  </ng-template>
+
+</div>
