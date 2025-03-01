@@ -9,14 +9,9 @@ permissions:
   id-token: write
   pages: write
 
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
 
-  build-and-test-with-reports:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +40,7 @@ jobs:
   # Unit test report job
   unit-tests-report:
     runs-on: ubuntu-latest
-    needs: build-and-test-with-reports
+    needs: build-and-test
     steps:
       - name: Unit Tests Report
         uses: dorny/test-reporter@v1
@@ -57,12 +52,21 @@ jobs:
 
   # Deployment job
   deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build-and-test-with-reports
     steps:
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ github.workspace }}/dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
