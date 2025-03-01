@@ -22,7 +22,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm ci
+          npm install
           npm run build
 
       # Workflow dispatch event that pushes the current version to the release branch.
