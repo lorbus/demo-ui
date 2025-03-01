@@ -44,7 +44,8 @@
     "eslint": "^9.21.0",
     "webrtc-adapter": "^9.0.1",
     "zone.js": "^0.15.0",
-    "@cypress/schematic": "^3.0.0"
+    "@cypress/schematic": "^3.0.0",
+    "@jamesives/github-pages-deploy-action": "^4.7.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.0",
