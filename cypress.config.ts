@@ -5,7 +5,7 @@ export default defineConfig({
   projectId: "4jods3",
 
   e2e: {
-    'baseUrl': 'http://localhost:4200'
+    'baseUrl': 'https://lorbus.github.io/demo-ui'
   },
 
   component: {
