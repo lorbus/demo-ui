@@ -3,9 +3,9 @@ name: GitHub-CI
 on: [ push ]
 
 permissions:
-  contents: read
-  actions: read
+  contents: write
   checks: write
+  actions: write
 
 jobs:
   build-and-test-with-reports:
@@ -20,11 +20,10 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build
-        run: npm run build
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build
 
       # Workflow dispatch event that pushes the current version to the release branch.
       # From here the secondary production deployment workflow will trigger to build the dependencies.
