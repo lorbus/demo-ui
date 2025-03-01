@@ -1,9 +1,7 @@
 # Demo FE/UI App for Posts
 
-- GitHub Workflows
-  Status: [![GitHub Workflows Status](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml)
-- GitLab Pipelines
-  Status: [![GitLab Pipelines Status](https://gitlab.com/lorbush/demo-ui/badges/main/pipeline.svg)](https://gitlab.com/lorbush/demo-ui/-/commits/main)
+[![GitHub Workflows Status](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/lorbus/demo-ui/actions/workflows/ci.yml)
+[![GitLab Pipelines Status](https://gitlab.com/lorbush/demo-ui/badges/main/pipeline.svg)](https://gitlab.com/lorbush/demo-ui/-/commits/main)
 
 
 ## Initialize Repo

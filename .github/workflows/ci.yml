@@ -6,10 +6,18 @@ permissions:
   contents: write
   checks: write
   actions: write
+  id-token: write
+  pages: write
 
 jobs:
+
   build-and-test-with-reports:
     runs-on: ubuntu-latest
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: https://lorbus.github.io/demo-ui
 
     steps:
       - name: Checkout
@@ -25,15 +33,9 @@ jobs:
           npm install
           npm run build
 
-      # Workflow dispatch event that pushes the current version to the release branch.
-      # From here the secondary production deployment workflow will trigger to build the dependencies.
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: releases/v4
-          folder: .
-          clean: false
-          single-commit: true
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
 
       - name: Make the script file executable
         run: chmod +x install-chrome.sh
